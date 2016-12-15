@@ -1,6 +1,5 @@
 var once = require('once')
 var eos = require('end-of-stream')
-var fs = require('fs') // we only need fs to get the ReadStream and WriteStream prototypes
 
 var noop = function () {}
 
@@ -9,7 +8,7 @@ var isFn = function (fn) {
 }
 
 var isFS = function (stream) {
-  return (stream instanceof (fs.ReadStream || noop) || stream instanceof (fs.WriteStream || noop)) && isFn(stream.close)
+  return false
 }
 
 var isRequest = function (stream) {
